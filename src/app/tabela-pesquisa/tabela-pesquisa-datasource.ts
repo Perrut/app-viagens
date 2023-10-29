@@ -6,32 +6,23 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 
 // TODO: Replace this with your own data model type
 export interface TabelaPesquisaItem {
-  name: string;
-  id: number;
+  nome: string;
+  documento: number;
+  email: string;
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: TabelaPesquisaItem[] = [
-  {id: 1, name: 'Hydrogen'},
-  {id: 2, name: 'Helium'},
-  {id: 3, name: 'Lithium'},
-  {id: 4, name: 'Beryllium'},
-  {id: 5, name: 'Boron'},
-  {id: 6, name: 'Carbon'},
-  {id: 7, name: 'Nitrogen'},
-  {id: 8, name: 'Oxygen'},
-  {id: 9, name: 'Fluorine'},
-  {id: 10, name: 'Neon'},
-  {id: 11, name: 'Sodium'},
-  {id: 12, name: 'Magnesium'},
-  {id: 13, name: 'Aluminum'},
-  {id: 14, name: 'Silicon'},
-  {id: 15, name: 'Phosphorus'},
-  {id: 16, name: 'Sulfur'},
-  {id: 17, name: 'Chlorine'},
-  {id: 18, name: 'Argon'},
-  {id: 19, name: 'Potassium'},
-  {id: 20, name: 'Calcium'},
+  {documento: 91868912000, nome: 'Ellas', email: 'koipul@email.com'},
+  {documento: 33591779083, nome: 'Premhuo', email: 'wiwaer@email.com'},
+  {documento: 98690771026, nome: 'Urzyo', email: 'waousn@email.com'},
+  {documento: 63269808011, nome: 'Doikatoi', email: 'zyecli@email.com'},
+  {documento: 17982385001, nome: 'Xiwibor', email: 'beuger@email.com'},
+  {documento: 25428871016, nome: 'Lezos', email: 'enflol@email.com'},
+  {documento: 50199382034, nome: 'Sasiam', email: 'ficugo@email.com'},
+  {documento: 92643327071, nome: 'Uragkaouma', email: 'wauwur@email.com'},
+  {documento: 93551216010, nome: 'Urnou', email: 'devivu@email.com'},
+  {documento: 56842208009, nome: 'Fosue', email: 'zufaca@email.com'},
 ];
 
 /**
@@ -97,8 +88,9 @@ export class TabelaPesquisaDataSource extends DataSource<TabelaPesquisaItem> {
     return data.sort((a, b) => {
       const isAsc = this.sort?.direction === 'asc';
       switch (this.sort?.active) {
-        case 'name': return compare(a.name, b.name, isAsc);
-        case 'id': return compare(+a.id, +b.id, isAsc);
+        case 'nome': return compare(a.nome, b.nome, isAsc);
+        case 'documento': return compare(+a.documento, +b.documento, isAsc);
+        case 'email': return compare(+a.email, +b.email, isAsc);
         default: return 0;
       }
     });

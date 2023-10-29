@@ -16,7 +16,7 @@ export class TabelaPesquisaComponent implements AfterViewInit {
   dataSource: TabelaPesquisaDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['nome', 'documento', 'email'];
 
   constructor() {
     this.dataSource = new TabelaPesquisaDataSource();
