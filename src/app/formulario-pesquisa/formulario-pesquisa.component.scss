@@ -1,10 +1,10 @@
-.full-width {
-  width: 100%;
+:host {
+  display: block;
+  margin-bottom: 16px;
 }
 
-.shipping-card {
-  min-width: 120px;
-  margin: 20px auto;
+.full-width {
+  width: 100%;
 }
 
 .mat-radio-button {
@@ -20,6 +20,10 @@
 .col {
   flex: 1;
   margin-right: 20px;
+}
+
+.pesquisar {
+  justify-content: flex-end;
 }
 
 .col:last-child {

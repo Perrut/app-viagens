@@ -1,42 +1,35 @@
 <form [formGroup]="clienteForm" novalidate (ngSubmit)="onSubmit()">
-  <mat-card class="shipping-card">
-    <mat-card-header>
-      <mat-card-title>Pesquisa de Clientes</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Nome" formControlName="nome">
-            <mat-error *ngIf="clienteForm.controls['nome'].hasError('required')">
-              Nome é <strong>obrigatório</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Last name" formControlName="documento">
-            <mat-error *ngIf="clienteForm.controls['documento'].hasError('required')">
-              Documento é <strong>obrigatório</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <textarea matInput placeholder="Address" formControlName="email"></textarea>
-            <mat-error *ngIf="clienteForm.controls['email'].hasError('required')">
-              Address is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Pesquisar</button>
-    </mat-card-actions>
-  </mat-card>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Nome" formControlName="nome">
+        <mat-error *ngIf="clienteForm.controls['nome'].hasError('required')">
+          Nome é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="123456789" formControlName="documento">
+        <mat-error *ngIf="clienteForm.controls['documento'].hasError('required')">
+          Documento é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="exemplo@email.com" formControlName="email">
+        <mat-error *ngIf="clienteForm.controls['email'].hasError('required')">
+          Address is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row pesquisar">
+    <button mat-raised-button color="primary" type="submit">Pesquisar</button>
+  </div>
 </form>

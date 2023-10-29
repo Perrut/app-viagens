@@ -2,3 +2,9 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+app-busca-clientes {
+    .mat-card-header-text {
+        margin-left: 0;
+    }
+}
