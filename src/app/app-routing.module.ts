@@ -1,9 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BuscaClientesComponent } from './busca-clientes/busca-clientes.component';
+import { NavegacaoAppComponent } from './navegacao-app/navegacao-app.component';
+import { FuncionalidadeNaoImplementadaComponent } from './funcionalidade-nao-implementada/funcionalidade-nao-implementada.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: BuscaClientesComponent }
+  { 
+    path: '', 
+    component: NavegacaoAppComponent, 
+    children: [
+      { path: 'clientes', component: BuscaClientesComponent },
+      { path: '**', component: FuncionalidadeNaoImplementadaComponent }
+    ] 
+  }
 ];
 
 @NgModule({
