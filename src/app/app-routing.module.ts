@@ -9,6 +9,7 @@ const routes: Routes = [
     path: '', 
     component: NavegacaoAppComponent, 
     children: [
+      { path: '', component: BuscaClientesComponent },
       { path: 'clientes', component: BuscaClientesComponent },
       { path: '**', component: FuncionalidadeNaoImplementadaComponent }
     ] 
