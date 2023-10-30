@@ -5,9 +5,16 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="clientes" (click)="drawer.close()">Clientes</a>
-      <a mat-list-item routerLink="fornecedores" (click)="drawer.close()">Fornecedores</a>
-      <a mat-list-item routerLink="vendas" (click)="drawer.close()">Vendas</a>
+      <ng-container *ngIf="(isHandset$ | async) === false">
+        <a mat-list-item routerLink="clientes">Clientes</a>
+        <a mat-list-item routerLink="fornecedores">Fornecedores</a>
+        <a mat-list-item routerLink="vendas">Vendas</a>
+      </ng-container>
+      <ng-container *ngIf="(isHandset$ | async)">
+        <a mat-list-item routerLink="clientes" (click)="drawer.close()">Clientes</a>
+        <a mat-list-item routerLink="fornecedores" (click)="drawer.close()">Fornecedores</a>
+        <a mat-list-item routerLink="vendas" (click)="drawer.close()">Vendas</a>
+      </ng-container>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
