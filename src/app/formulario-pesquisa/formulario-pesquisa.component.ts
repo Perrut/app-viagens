@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { TabelaPesquisaItem } from '../tabela-pesquisa/tabela-pesquisa-datasource';
 
 @Component({
   selector: 'app-formulario-pesquisa',
@@ -13,9 +14,17 @@ export class FormularioPesquisaComponent {
     email: [null, Validators.required]
   });
 
+  @Output()
+  filtroDefinido = new EventEmitter<TabelaPesquisaItem>();
+
   constructor(private fb: FormBuilder) {}
 
   onSubmit(): void {
-    console.log('Pesquisa em andamento.');
+    const filtro: TabelaPesquisaItem = {
+      documento: this.clienteForm.value.documento!,
+      email: this.clienteForm.value.email!,
+      nome: this.clienteForm.value.nome!
+    };
+    this.filtroDefinido.emit(filtro);
   }
 }

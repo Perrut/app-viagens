@@ -1,25 +1,34 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
-import { TabelaPesquisaDataSource, TabelaPesquisaItem } from './tabela-pesquisa-datasource';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { TabelaPesquisaItem } from './tabela-pesquisa-datasource';
 
 @Component({
   selector: 'app-tabela-pesquisa',
   templateUrl: './tabela-pesquisa.component.html',
   styleUrls: ['./tabela-pesquisa.component.scss']
 })
-export class TabelaPesquisaComponent implements AfterViewInit {
+export class TabelaPesquisaComponent implements AfterViewInit, OnChanges {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<TabelaPesquisaItem>;
-  dataSource: TabelaPesquisaDataSource;
+  dataSource: MatTableDataSource<TabelaPesquisaItem>;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['nome', 'documento', 'email'];
 
+  @Input()
+  dadosPesquisa: TabelaPesquisaItem[] = [];
+
   constructor() {
-    this.dataSource = new TabelaPesquisaDataSource();
+    this.dataSource = new MatTableDataSource(this.dadosPesquisa);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['dadosPesquisa']) {
+      this.dataSource.data = [...this.dadosPesquisa];
+    }
   }
 
   ngAfterViewInit(): void {

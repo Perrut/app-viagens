@@ -3,10 +3,10 @@
         <mat-card-title>Pesquisa de Clientes</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <app-formulario-pesquisa>
+        <app-formulario-pesquisa (filtroDefinido)="onFiltroDefinido($event)">
         </app-formulario-pesquisa>
         
-        <app-tabela-pesquisa>
+        <app-tabela-pesquisa [dadosPesquisa]="dadosResultadoBusca">
         </app-tabela-pesquisa>
     </mat-card-content>
 </mat-card>
