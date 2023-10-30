@@ -10,8 +10,8 @@ import { TabelaPesquisaItem } from '../tabela-pesquisa/tabela-pesquisa-datasourc
 export class FormularioPesquisaComponent {
   clienteForm = this.fb.group({
     nome: [null, Validators.required],
-    documento: [null, Validators.required],
-    email: [null, Validators.required]
+    documento: [null],
+    email: [null]
   });
 
   @Output()
@@ -20,11 +20,13 @@ export class FormularioPesquisaComponent {
   constructor(private fb: FormBuilder) {}
 
   onSubmit(): void {
-    const filtro: TabelaPesquisaItem = {
-      documento: this.clienteForm.value.documento!,
-      email: this.clienteForm.value.email!,
-      nome: this.clienteForm.value.nome!
-    };
-    this.filtroDefinido.emit(filtro);
+    if (this.clienteForm.valid) {
+      const filtro: TabelaPesquisaItem = {
+        documento: this.clienteForm.value.documento!,
+        email: this.clienteForm.value.email!,
+        nome: this.clienteForm.value.nome!
+      };
+      this.filtroDefinido.emit(filtro);
+    }
   }
 }

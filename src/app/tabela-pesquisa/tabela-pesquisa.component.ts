@@ -18,6 +18,8 @@ export class TabelaPesquisaComponent implements AfterViewInit, OnChanges {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['nome', 'documento', 'email'];
 
+  isLoading = false;
+
   @Input()
   dadosPesquisa: TabelaPesquisaItem[] = [];
 
@@ -27,7 +29,11 @@ export class TabelaPesquisaComponent implements AfterViewInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['dadosPesquisa']) {
-      this.dataSource.data = [...this.dadosPesquisa];
+      this.isLoading = true;
+      setTimeout(() => {
+        this.dataSource.data = [...this.dadosPesquisa];
+        this.isLoading = false;
+      }, 2000);
     }
   }
 

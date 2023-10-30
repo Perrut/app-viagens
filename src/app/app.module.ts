@@ -16,6 +16,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { BuscaClientesComponent } from './busca-clientes/busca-clientes.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { BuscaClientesComponent } from './busca-clientes/busca-clientes.componen
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
